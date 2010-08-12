@@ -1,0 +1,4 @@
+{['./src/my_parse.erl',
+  './src/*'],
+ [{outdir, "./ebin"},
+   debug_info]}.

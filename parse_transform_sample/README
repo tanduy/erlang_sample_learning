@@ -1,0 +1,32 @@
+=Parse transform in Erlang=
+* Erlang compiler to built beam file:
+    source code (xxx.erl) -----> Form
+
+    Form ----------------------> xxx.beam
+
+* Erlang compiler to built beam file with Parse Transform:
+    source code (xxx.erl) -----> Form
+
+             parse transform
+    Form ----------------------> OtherForm
+
+    OtherForm -----------------> xxx.beam
+
+=Template=
+* In the module must embed template:
+    -compile({parse_transform, module_name})
+* In module_name must export function parse_transform/2
+
+=In the example=
+* module_name is my_parse
+* This example use parse transform to embedded function greeting/0 into module that 
+  include the template: -compile({parse_transform, my_parse})
+* Module normal.erl not use the parse transform
+* Module special.erl use the parse transform and after built, it has function greeting/0
+
+=Run & Look=
+*run command: make
+*erl -pa ebin
+    normal:ping().
+    special:ping().
+    special:greeting().
