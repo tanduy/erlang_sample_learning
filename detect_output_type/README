@@ -1,0 +1,20 @@
+Detect when user run with Erlang shell output or file output.
+In some applications, you want to know when user run application with Erlang shell
+output? or file output?
+    In Ruby, you can know it by: $stdout.tty?
+    In Python, you can know it by: sys.stdout.isatty()
+    e.t
+--------------------------------------------------------------------------------
+Run:
+    make compile
+    make sample
+    make sample > result.txt
+--------------------------------------------------------------------------------
+Explain:
+    If you run: make sample
+    That mean you choose Erlang shell output.
+    In the sample, output to shell "Hello world!" with red color
+
+    If you run: make sample > result.txt
+    That mean you choose file output.
+    In the sample, output to file "Hello world!"
